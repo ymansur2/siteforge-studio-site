@@ -6,14 +6,10 @@
  * SiteForge Studio — Global Design System
  */
 
-@custom-variant dark (&:is(.dark *));
+:root {
+  --radius: 0.25rem;
 
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-
+  /* brand colors */
   --color-forest: #1E5C3A;
   --color-forest-light: #2A7A4F;
   --color-forest-muted: #E8F2EC;
@@ -23,15 +19,10 @@
   --color-border-subtle: #E8E6E1;
 }
 
-:root {
-  --radius: 0.25rem;
-}
-
-/* ✅ FIXED BASE (removed broken Tailwind classes) */
+/* ✅ CLEAN TAILWIND BASE (WORKS WITH CONFIG) */
 @layer base {
   * {
-    border-color: #e5e5e5;
-    outline-color: rgba(0, 0, 0, 0.1);
+    @apply border border-border;
   }
 
   html {
@@ -39,8 +30,7 @@
   }
 
   body {
-    background-color: white;
-    color: #1a1a1a;
+    @apply bg-background text-foreground;
     font-family: 'DM Sans', sans-serif;
     font-size: 16px;
     line-height: 1.7;
@@ -57,31 +47,24 @@
   select:not(:disabled),
   input[type="checkbox"]:not(:disabled),
   input[type="radio"]:not(:disabled) {
-    cursor: pointer;
+    @apply cursor-pointer;
   }
 }
 
 @layer components {
   .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    @apply w-full mx-auto px-6;
   }
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
+      @apply px-8;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 3rem;
-      padding-right: 3rem;
-      max-width: 1320px;
+      @apply px-12 max-w-[1320px];
     }
   }
 
@@ -107,43 +90,48 @@
   }
 
   .accent-line {
-    width: 2.5rem;
-    height: 1px;
-    background-color: var(--color-forest);
+    @apply block w-10 h-px bg-forest;
   }
 
   .btn-forest {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: var(--color-forest);
-    color: white;
-    font-family: 'Syne', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.85rem 2rem;
-    border-radius: 2px;
-    transition: 0.25s;
+    @apply inline-flex items-center gap-2 bg-forest text-white uppercase text-xs font-semibold tracking-widest px-8 py-3 transition;
   }
 
   .btn-forest:hover {
-    background-color: var(--color-forest-light);
-    transform: translateY(-1px);
+    @apply bg-forest-light -translate-y-[1px];
   }
 
   .btn-outline-forest {
-    background: transparent;
-    color: var(--color-forest);
-    border: 1.5px solid var(--color-forest);
-    padding: 0.85rem 2rem;
-    transition: 0.25s;
+    @apply inline-flex items-center gap-2 border border-forest text-forest uppercase text-xs font-semibold tracking-widest px-8 py-3 transition;
   }
 
   .btn-outline-forest:hover {
+    @apply bg-forest text-white -translate-y-[1px];
+  }
+
+  .nav-link {
+    @apply text-charcoal uppercase text-xs tracking-wide relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    right: 50%;
+    height: 1px;
     background-color: var(--color-forest);
-    color: white;
+    transition: 0.3s;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    left: 0;
+    right: 0;
+  }
+
+  .nav-link.active {
+    color: var(--color-forest);
   }
 }
 
