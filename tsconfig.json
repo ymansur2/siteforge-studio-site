@@ -1,0 +1,17 @@
+{
+  "include": ["src/**/*", "shared/**/*"],
+  "exclude": ["node_modules", "dist", "build"],
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@shared/*": ["./shared/*"]
+    },
+    "types": ["vite/client"]
+  }
+}
