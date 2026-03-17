@@ -4,9 +4,6 @@
 
 /*
  * SiteForge Studio — Global Design System
- * Design Philosophy: Quiet Luxury Editorial
- * Colors: White / Warm Gray / Deep Charcoal / Forest Green accent (#1E5C3A)
- * Typography: Cormorant Garamond (display) + Syne (headings/labels) + DM Sans (body)
  */
 
 @custom-variant dark (&:is(.dark *));
@@ -16,39 +13,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  
+
   --color-forest: #1E5C3A;
   --color-forest-light: #2A7A4F;
   --color-forest-muted: #E8F2EC;
@@ -60,55 +25,29 @@
 
 :root {
   --radius: 0.25rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.13 0.005 30);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.13 0.005 30);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.13 0.005 30);
-  --primary: oklch(0.33 0.09 150);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.97 0.004 60);
-  --secondary-foreground: oklch(0.25 0.005 30);
-  --muted: oklch(0.97 0.004 60);
-  --muted-foreground: oklch(0.48 0.01 30);
-  --accent: oklch(0.97 0.004 60);
-  --accent-foreground: oklch(0.13 0.005 30);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.91 0.006 60);
-  --input: oklch(0.91 0.006 60);
-  --ring: oklch(0.33 0.09 150);
-  --chart-1: oklch(0.33 0.09 150);
-  --chart-2: oklch(0.45 0.09 150);
-  --chart-3: oklch(0.55 0.09 150);
-  --chart-4: oklch(0.65 0.09 150);
-  --chart-5: oklch(0.75 0.09 150);
-  --sidebar: oklch(0.97 0.004 60);
-  --sidebar-foreground: oklch(0.13 0.005 30);
-  --sidebar-primary: oklch(0.33 0.09 150);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.94 0.006 60);
-  --sidebar-accent-foreground: oklch(0.13 0.005 30);
-  --sidebar-border: oklch(0.91 0.006 60);
-  --sidebar-ring: oklch(0.33 0.09 150);
 }
 
+/* ✅ FIXED BASE (removed broken Tailwind classes) */
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: #e5e5e5;
+    outline-color: rgba(0, 0, 0, 0.1);
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: white;
+    color: #1a1a1a;
     font-family: 'DM Sans', sans-serif;
     font-size: 16px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -118,7 +57,7 @@
   select:not(:disabled),
   input[type="checkbox"]:not(:disabled),
   input[type="radio"]:not(:disabled) {
-    @apply cursor-pointer;
+    cursor: pointer;
   }
 }
 
@@ -129,11 +68,6 @@
     margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-  }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
   }
 
   @media (min-width: 640px) {
@@ -154,9 +88,11 @@
   .font-display {
     font-family: 'Cormorant Garamond', serif;
   }
+
   .font-heading {
     font-family: 'Syne', sans-serif;
   }
+
   .font-body {
     font-family: 'DM Sans', sans-serif;
   }
@@ -171,7 +107,6 @@
   }
 
   .accent-line {
-    display: block;
     width: 2.5rem;
     height: 1px;
     background-color: var(--color-forest);
@@ -190,94 +125,25 @@
     text-transform: uppercase;
     padding: 0.85rem 2rem;
     border-radius: 2px;
-    transition: background-color 0.25s ease, transform 0.2s ease;
-    text-decoration: none;
+    transition: 0.25s;
   }
+
   .btn-forest:hover {
     background-color: var(--color-forest-light);
     transform: translateY(-1px);
   }
 
   .btn-outline-forest {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: transparent;
+    background: transparent;
     color: var(--color-forest);
     border: 1.5px solid var(--color-forest);
-    font-family: 'Syne', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
     padding: 0.85rem 2rem;
-    border-radius: 2px;
-    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
-    text-decoration: none;
+    transition: 0.25s;
   }
+
   .btn-outline-forest:hover {
     background-color: var(--color-forest);
     color: white;
-    transform: translateY(-1px);
-  }
-
-  .nav-link {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-charcoal);
-    text-decoration: none;
-    position: relative;
-    padding-bottom: 2px;
-  }
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 50%;
-    right: 50%;
-    height: 1px;
-    background-color: var(--color-forest);
-    transition: left 0.3s ease, right 0.3s ease;
-  }
-  .nav-link:hover::after,
-  .nav-link.active::after {
-    left: 0;
-    right: 0;
-  }
-  .nav-link.active {
-    color: var(--color-forest);
-  }
-
-  .section-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 7rem;
-    font-weight: 300;
-    color: oklch(0.91 0.006 60);
-    line-height: 1;
-    user-select: none;
-    pointer-events: none;
-  }
-
-  .testimonial-card {
-    background: white;
-    border: 1px solid var(--color-border-subtle);
-    padding: 2rem;
-    border-radius: 2px;
-    position: relative;
-  }
-  .testimonial-card::before {
-    content: '"';
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem;
-    font-weight: 300;
-    color: var(--color-forest-muted);
-    position: absolute;
-    top: 0.5rem;
-    left: 1.5rem;
-    line-height: 1;
   }
 }
 
@@ -288,13 +154,16 @@
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #f8f7f5;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #c5c2bb;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-forest);
 }
