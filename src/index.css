@@ -1,12 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /*
  * SiteForge Studio — Global Design System
  * Design Philosophy: Quiet Luxury Editorial
  * Colors: White / Warm Gray / Deep Charcoal / Forest Green accent (#1E5C3A)
  * Typography: Cormorant Garamond (display) + Syne (headings/labels) + DM Sans (body)
  */
-
-@import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -48,7 +49,6 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   
-  /* Custom brand tokens */
   --color-forest: #1E5C3A;
   --color-forest-light: #2A7A4F;
   --color-forest-muted: #E8F2EC;
@@ -151,7 +151,6 @@
     }
   }
 
-  /* Typography utilities */
   .font-display {
     font-family: 'Cormorant Garamond', serif;
   }
@@ -162,7 +161,6 @@
     font-family: 'DM Sans', sans-serif;
   }
 
-  /* Section label style */
   .section-label {
     font-family: 'Syne', sans-serif;
     font-size: 0.7rem;
@@ -172,7 +170,6 @@
     color: var(--color-forest);
   }
 
-  /* Accent line */
   .accent-line {
     display: block;
     width: 2.5rem;
@@ -180,7 +177,6 @@
     background-color: var(--color-forest);
   }
 
-  /* Green button */
   .btn-forest {
     display: inline-flex;
     align-items: center;
@@ -202,7 +198,6 @@
     transform: translateY(-1px);
   }
 
-  /* Outlined button */
   .btn-outline-forest {
     display: inline-flex;
     align-items: center;
@@ -226,7 +221,6 @@
     transform: translateY(-1px);
   }
 
-  /* Nav link */
   .nav-link {
     font-family: 'Syne', sans-serif;
     font-size: 0.78rem;
@@ -257,7 +251,6 @@
     color: var(--color-forest);
   }
 
-  /* Section number decoration */
   .section-number {
     font-family: 'Cormorant Garamond', serif;
     font-size: 7rem;
@@ -268,7 +261,6 @@
     pointer-events: none;
   }
 
-  /* Testimonial card */
   .testimonial-card {
     background: white;
     border: 1px solid var(--color-border-subtle);
@@ -289,12 +281,10 @@
   }
 }
 
-/* Smooth scroll offset for fixed nav */
 :target {
   scroll-margin-top: 80px;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
