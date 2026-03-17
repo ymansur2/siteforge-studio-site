@@ -23,7 +23,7 @@
   --color-border-subtle: #E8E6E1;
 }
 
-/* ✅ RESTORED BASE (matches Manus look) */
+/* ✅ BASE (fonts + smooth look restored) */
 @layer base {
   * {
     border-color: var(--border);
@@ -44,6 +44,12 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* ✨ MAKE HEADINGS USE LUXURY FONT */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: -0.01em;
+  }
+
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -57,6 +63,7 @@
   }
 }
 
+/* ✅ COMPONENTS */
 @layer components {
   .container {
     width: 100%;
@@ -155,6 +162,7 @@
   }
 }
 
+/* ✅ SCROLL */
 :target {
   scroll-margin-top: 80px;
 }
