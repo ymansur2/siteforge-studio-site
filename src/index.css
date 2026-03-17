@@ -23,7 +23,7 @@
   --color-border-subtle: #E8E6E1;
 }
 
-/* ✅ BASE (GLOBAL FONT APPLIED) */
+/* BASE */
 @layer base {
   * {
     border-color: var(--border);
@@ -44,7 +44,6 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* ✅ FORCE ALL TEXT TO USE SYNE */
   h1, h2, h3, h4, h5, h6,
   p, span, a, button, li {
     font-family: 'Syne', sans-serif;
@@ -63,7 +62,7 @@
   }
 }
 
-/* ✅ COMPONENTS */
+/* COMPONENTS */
 @layer components {
   .container {
     width: 100%;
@@ -88,16 +87,14 @@
     }
   }
 
-  /* ✅ ALL FONT UTILITY CLASSES NOW MATCH */
   .font-display,
   .font-heading,
   .font-body {
     font-family: 'Syne', sans-serif;
   }
 
-  /* NAV STYLE (matches screenshot) */
+  /* NAV */
   .nav-link {
-    font-family: 'Syne', sans-serif;
     font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -129,28 +126,13 @@
     color: var(--color-forest);
   }
 
-  .section-label {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--color-forest);
-  }
-
-  .accent-line {
-    width: 2.5rem;
-    height: 1px;
-    background-color: var(--color-forest);
-  }
-
+  /* BUTTONS */
   .btn-forest {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     background-color: var(--color-forest);
     color: white;
-    font-family: 'Syne', sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -173,7 +155,6 @@
     background-color: transparent;
     color: var(--color-forest);
     border: 1.5px solid var(--color-forest);
-    font-family: 'Syne', sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -189,9 +170,56 @@
     color: white;
     transform: translateY(-1px);
   }
+
+  /* FORM */
+  .form-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6B6B6B;
+  }
+
+  .form-input {
+    font-size: 0.95rem;
+    color: #4A4A4A;
+  }
+
+  .form-input::placeholder {
+    color: #9CA3AF;
+    font-weight: 400;
+  }
+
+  /* RIGHT PANEL */
+  .panel-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-forest);
+  }
+
+  .panel-text {
+    font-size: 0.95rem;
+    color: #4A4A4A;
+    line-height: 1.6;
+  }
+
+  .step-number {
+    font-weight: 600;
+  }
+
+  .highlight-box {
+    font-size: 0.95rem;
+    color: #2E2E2E;
+  }
+
+  .highlight-box strong {
+    font-weight: 600;
+  }
 }
 
-/* ✅ SCROLL */
+/* SCROLL */
 :target {
   scroll-margin-top: 80px;
 }
@@ -207,10 +235,6 @@
 ::-webkit-scrollbar-thumb {
   background: #c5c2bb;
   border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-forest);
 }
 
 ::-webkit-scrollbar-thumb:hover {
